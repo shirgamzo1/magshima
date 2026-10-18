@@ -13,146 +13,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Rubik:wght@600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --beige: #f4ede3;
-    --beige-deep: #eadfce;
-    --pink: #ec47a6;
-    --pink-soft: #fde6f2;
-    --brown: #a8724f;
-    --ink: #3b2f2a;
-    --muted: #7a6a60;
-    --white: #ffffff;
-    --line: #e7dccd;
-    --radius: 18px;
-    --shadow: 0 2px 10px rgba(80, 50, 30, .07);
-  }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--beige);
-    color: var(--ink);
-    font-family: "Assistant", Arial, sans-serif;
-    font-size: 17px;
-    line-height: 1.6;
-    -webkit-text-size-adjust: 100%;
-  }
-  a { color: inherit; }
-  .wrap { max-width: 640px; margin: 0 auto; padding: 0 16px 48px; }
-  h2, h3 { font-family: "Rubik", "Assistant", sans-serif; line-height: 1.25; margin: 0; }
-  h2 { font-size: 23px; display: flex; align-items: center; gap: 10px; }
-  h2 .ic { width: 34px; height: 34px; padding: 7px; border-radius: 50%; background: var(--pink); color: var(--white); flex: none; }
-  h3 { font-size: 18px; }
-  .ic { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-
-  /* ראש הדף */
-  header { text-align: center; padding: 22px 0 6px; }
-  header .logo { width: 210px; max-width: 62%; height: auto; }
-  .welcome {
-    background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow);
-    padding: 20px 18px; margin-top: 14px; display: flex; gap: 16px; align-items: center; text-align: right;
-  }
-  .welcome img { width: 86px; height: 86px; border-radius: 50%; object-fit: cover; flex: none; border: 3px solid var(--beige); }
-  .welcome p { margin: 0; }
-  .welcome .hi { font-weight: 700; font-size: 19px; }
-
-  .portal-btn {
-    display: flex; align-items: center; justify-content: center; gap: 10px;
-    margin: 16px 0 6px; padding: 17px 20px; border-radius: 999px;
-    background: var(--pink); color: var(--white); text-decoration: none;
-    font-family: "Rubik", sans-serif; font-weight: 700; font-size: 20px;
-    box-shadow: 0 6px 18px rgba(236, 71, 166, .32);
-  }
-  .portal-btn:active { transform: translateY(1px); }
-  .portal-note { text-align: center; font-size: 15px; color: var(--muted); margin: 0; }
-  .portal-note a { color: var(--brown); font-weight: 600; }
-
-  nav.chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 18px 0 4px; }
-  nav.chips a {
-    text-decoration: none; background: var(--white); border: 1px solid var(--line);
-    padding: 6px 14px; border-radius: 999px; font-size: 15px; font-weight: 600; color: var(--brown);
-  }
-
-  section { margin-top: 30px; scroll-margin-top: 12px; }
-  section > h2 { margin-bottom: 12px; }
-  .card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px 18px; }
-  .stack > * + * { margin-top: 12px; }
-  .small { font-size: 15px; color: var(--muted); }
-
-  /* עדכונים */
-  .update { border-right: 5px solid var(--pink); }
-  .update .meta { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
-  .pill { background: var(--pink-soft); color: #b8287a; font-weight: 700; font-size: 13px; padding: 1px 10px; border-radius: 999px; }
-  .update p { margin: 4px 0 0; }
-  .link { display: inline-flex; align-items: center; gap: 4px; margin-top: 8px; color: #b8287a; font-weight: 700; text-decoration: none; }
-  .link .ic { width: 18px; height: 18px; }
-
-  /* לוז */
-  .schedule { padding: 6px 18px; }
-  .row { display: flex; gap: 14px; align-items: flex-start; padding: 12px 0; }
-  .row + .row { border-top: 1px solid var(--line); }
-  .date {
-    flex: none; width: 74px; text-align: center; background: var(--beige); border-radius: 12px;
-    padding: 6px 4px; font-weight: 700; color: var(--brown); font-size: 15px; line-height: 1.3;
-  }
-  .row p { margin: 2px 0 0; }
-
-  /* מה יש במועדון */
-  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .tile { display: flex; flex-direction: column; gap: 6px; text-decoration: none; padding: 16px; }
-  .tile .ic { width: 40px; height: 40px; padding: 9px; border-radius: 12px; background: var(--pink-soft); color: #b8287a; }
-  .tile p { margin: 0; font-size: 15px; color: var(--muted); }
-  .tile .go { margin-top: auto; padding-top: 4px; color: #b8287a; font-weight: 700; font-size: 15px; }
-  .tile.info .go { color: var(--muted); font-weight: 600; }
-  @media (max-width: 340px) { .tiles { grid-template-columns: 1fr; } }
-
-  /* רשימות קישורים */
-  .links { list-style: none; margin: 0; padding: 0; }
-  .links li + li { border-top: 1px solid var(--line); }
-  .links a { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 2px; text-decoration: none; font-weight: 600; }
-  .links a .ic { width: 18px; height: 18px; color: var(--pink); flex: none; }
-  .group-title { font-weight: 700; color: var(--brown); font-size: 15px; margin: 4px 0 0; }
-
-  /* שאלות נפוצות */
-  details { background: var(--white); border-radius: 14px; box-shadow: var(--shadow); }
-  details + details { margin-top: 10px; }
-  summary {
-    cursor: pointer; list-style: none; padding: 14px 18px; font-weight: 700;
-    display: flex; justify-content: space-between; align-items: center; gap: 10px;
-  }
-  summary::-webkit-details-marker { display: none; }
-  summary::after { content: "+"; font-size: 22px; color: var(--pink); font-weight: 700; line-height: 1; }
-  details[open] summary::after { content: "−"; }
-  details .answer { padding: 0 18px 16px; }
-  details .answer p { margin: 0 0 8px; }
-  details ol, details ul { margin: 4px 0 8px; padding-right: 22px; }
-  details li + li { margin-top: 6px; }
-
-  /* חלונות תוכנית החודש */
-  .plan { border-right: 5px solid var(--pink); }
-  .plan summary { font-family: "Rubik", "Assistant", sans-serif; font-size: 18px; }
-  .plan summary::after, .plan[open] summary::after { content: none; }
-  .plan .t { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
-  .plan .when { font-family: "Assistant", sans-serif; font-size: 14px; font-weight: 700; color: #b8287a; background: var(--pink-soft); padding: 1px 10px; border-radius: 999px; }
-  .plan .arrow { width: 24px; height: 24px; color: var(--pink); flex: none; transition: transform .2s; }
-  .plan[open] .arrow { transform: rotate(180deg); }
-  .plan .link { margin-top: 0; }
-
-  /* מקום שעוד צריך למלא (יוסר לפני שמשתפים) */
-  .todo { background: #fff4c2; outline: 2px dashed #d9a400; border-radius: 6px; padding: 0 4px; }
-
-  footer { text-align: center; margin-top: 40px; color: var(--muted); }
-  footer .quote { font-family: "Rubik", sans-serif; font-weight: 600; font-size: 19px; color: var(--brown); margin: 0 0 14px; }
-  footer p { margin: 2px 0; }
-  footer .sign { color: var(--ink); font-weight: 700; }
-
-  a:focus-visible, summary:focus-visible { outline: 3px solid var(--pink); outline-offset: 3px; border-radius: 8px; }
-</style>
+<link rel="stylesheet" href="style.css?v=20261018">
+<script>
+  // גודל הטקסט שנבחר בפעם הקודמת, לפני שהדף מצויר (כדי שלא יקפוץ)
+  try { var fs = localStorage.getItem('magshima-fs'); if (fs) document.documentElement.setAttribute('data-fs', fs); } catch (e) {}
+</script>
 </head>
 <body>
+<a class="skip" href="#main">דלגי לתוכן</a>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></symbol>
   <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></symbol>
   <symbol id="i-folder" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></symbol>
@@ -163,76 +33,133 @@
   <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
   <symbol id="i-left" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></symbol>
   <symbol id="i-down" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></symbol>
+  <symbol id="i-clip" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></symbol>
 </svg>
 
 <div class="wrap">
 
+  <div class="topbar" id="fs-bar" hidden>
+    <span class="label" id="fs-label">גודל טקסט</span>
+    <button type="button" class="fs-btn" id="fs-down" aria-label="הקטנת הטקסט" aria-describedby="fs-label">א-</button>
+    <button type="button" class="fs-btn" id="fs-up" aria-label="הגדלת הטקסט" aria-describedby="fs-label">א+</button>
+  </div>
+
   <header>
-    <img class="logo" src="img/logo.png" alt="מגשימה - המועדון לגננת" width="600" height="390">
-    <div class="welcome">
-      <img src="img/shir.jpg" alt="שיר גמזו" width="86" height="86">
+    <h1><img class="logo" src="img/logo.png" alt="מגשימה - המועדון לגננת" width="600" height="390"></h1>
+    <div class="hero">
+      <img src="img/shir.jpg" alt="שיר גמזו" width="108" height="108">
       <div>
-        <p class="hi">היי, כאן שיר 🤍</p>
+        <p class="hi" id="greet">היי, כאן שיר 🤍</p>
         <p>כל מה שמחכה לך במועדון נמצא כאן, בדף אחד. הדרכות, תכנון חודשי, קבצים, ערכות למידה ועדכונים.</p>
       </div>
     </div>
   </header>
 
-  <a class="portal-btn" href="https://my.schooler.biz/s/79388/bundles" target="_blank" rel="noopener">
-    <svg class="ic"><use href="#i-play"/></svg>
+  <a class="btn big" href="https://my.schooler.biz/s/79388/bundles" target="_blank" rel="noopener">
+    <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
     כניסה לפורטל התוכן
   </a>
-  <p class="portal-note">לא מצליחה להיכנס לפורטל? <a href="https://docs.google.com/document/d/1D9RWWdTpgFitQ6dRYPF421nI_laHAf1SZE3qS4vfQsI/edit?usp=sharing" target="_blank" rel="noopener">לחצי כאן</a> להסבר</p>
+  <p class="note">לא מצליחה להיכנס לפורטל? <a href="https://docs.google.com/document/d/1D9RWWdTpgFitQ6dRYPF421nI_laHAf1SZE3qS4vfQsI/edit?usp=sharing" target="_blank" rel="noopener">לחצי כאן</a> להסבר</p>
+
+  <main id="main" tabindex="-1">
+
+  <!-- ===== חיפוש: הרשימה נבנית מהכספת ומהפורטל (data/search.json) ===== -->
+  <div class="card search" id="search-box" role="search" hidden>
+    <label for="q">מה את מחפשת?</label>
+    <div class="field">
+      <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-search"/></svg>
+      <input id="q" type="search" autocomplete="off" enterkeyhint="search" placeholder="למשל: מיפוי, חנוכה, אסיפת הורים" aria-describedby="q-hint">
+    </div>
+    <p class="small hint" id="q-hint">החיפוש עובר על כל הקבצים בכספת ועל כל השיעורים בפורטל.</p>
+    <p class="status" id="q-status" role="status" aria-live="polite"></p>
+    <ul class="results" id="q-results"></ul>
+  </div>
+
+  <!-- ===== הדבר הבא: מתמלא מהאירועים ב-app.js, ונעלם כשאין אירוע קרוב ===== -->
+  <section class="card next reveal" id="next" aria-labelledby="next-title" hidden>
+    <span class="label">הדבר הבא במועדון</span>
+    <h3 id="next-title"></h3>
+    <div class="when"><span id="next-when"></span><span class="count" id="next-count"></span></div>
+    <p class="small" id="next-note" style="margin:6px 0 0;"></p>
+    <div class="actions">
+      <a class="btn-line" id="next-google" href="#" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>ליומן גוגל</a>
+      <a class="btn-line" id="next-ics" href="#"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>ליומן באייפון</a>
+    </div>
+  </section>
+
+  <!-- ===== התחילי כאן: אפשר להסתיר, הבחירה נשמרת בטלפון ===== -->
+  <section class="card start reveal" id="start" aria-labelledby="start-title">
+    <h2 id="start-title"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-star"/></svg>חדשה במועדון? התחילי כאן</h2>
+    <ol>
+      <li><span>היכנסי לפורטל וצפי בשיעור <a href="https://my.schooler.biz/s/79175/1722423561380/-Ld_5wo?tid=0" target="_blank" rel="noopener">"מכאן את מתחילה"</a>.</span></li>
+      <li><span>פתחי את <a href="https://drive.google.com/drive/folders/1gWZ2d-GMRm7BiyMfPkXwq50lIYrFy1hn" target="_blank" rel="noopener">כספת התכנים</a>. היא נפתחת עם המייל שאיתו קיבלת גישה.</span></li>
+      <li><span>שמרי את הדף הזה בטלפון, ככה הכול תמיד אצלך. <a href="#save-page">איך עושים את זה?</a></span></li>
+    </ol>
+    <button type="button" class="hide" id="start-hide" hidden>כבר עשיתי את זה, אפשר להסתיר</button>
+  </section>
 
   <nav class="chips" aria-label="ניווט בדף">
     <a href="#updates">עדכונים</a>
     <a href="#schedule">תוכנית החודש</a>
     <a href="#club">מה יש במועדון</a>
+    <a href="#vault">כספת</a>
     <a href="#kits">ערכות למידה</a>
     <a href="#help">עזרה</a>
   </nav>
 
-  <!-- ===== עדכונים חשובים: הכי חדש למעלה ===== -->
-  <section id="updates">
-    <h2><svg class="ic"><use href="#i-bell"/></svg>עדכונים חשובים</h2>
-    <div class="stack">
+  <!-- ===== עדכונים חשובים: הכי חדש למעלה. data-date קובע את "חדש" (שבועיים).
+       רק 3 גלויים, השאר עוברים לבד ל"עדכונים קודמים". ===== -->
+  <section id="updates" class="reveal" aria-labelledby="updates-title">
+    <h2 id="updates-title"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-bell"/></svg>עדכונים חשובים</h2>
+    <div class="stack" id="updates-list">
 
-      <article class="card update">
-        <div class="meta"><span class="pill">חדש</span><span class="small">18.10.2026</span></div>
+      <article class="card update" data-date="2026-10-18">
+        <div class="meta"><span class="small">18.10.2026</span></div>
         <h3>ערכות למידה חדשות מחכות לך בכספת</h3>
         <p>9 ערכות למידה מוכנות להדפסה: סתיו, חורף, חנוכה, בעלי חיים, צבעים וצורות, שפה ואוריינות וחשבון.</p>
-        <a class="link" href="#kits">לכל הערכות <svg class="ic"><use href="#i-left"/></svg></a>
+        <a class="link" href="#kits">לכל הערכות <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a>
       </article>
 
-      <article class="card update">
+      <article class="card update" data-date="2026-10-07">
         <div class="meta"><span class="small">7.10.2026</span></div>
         <h3>תכנון נובמבר כבר בפורטל</h3>
         <p>ההדרכה המוקלטת לתכנון החודש מחכה לך. הקבצים נמצאים מתחת לשיעור, ב"קבצים מצורפים".</p>
-        <a class="link" href="https://my.schooler.biz/s/79790/1723446311993/DIMPiSU?tid=0" target="_blank" rel="noopener">לצפייה בהדרכה <svg class="ic"><use href="#i-left"/></svg></a>
+        <a class="link" href="https://my.schooler.biz/s/79790/1723446311993/DIMPiSU?tid=0" target="_blank" rel="noopener">לצפייה בהדרכה <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a>
       </article>
 
     </div>
+    <details class="older" id="older" hidden>
+      <summary>עדכונים קודמים</summary>
+      <div class="answer stack" id="older-list"></div>
+    </details>
   </section>
 
-  <!-- ===== תוכנית החודש: להחליף בתחילת כל חודש ===== -->
-  <section id="schedule">
-    <h2><svg class="ic"><use href="#i-cal"/></svg>תוכנית החודש במועדון</h2>
+  <!-- ===== תוכנית החודש: להחליף בתחילת כל חודש (וגם את האירוע ב-app.js) ===== -->
+  <section id="schedule" class="reveal" aria-labelledby="schedule-title">
+    <h2 id="schedule-title"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>תוכנית החודש במועדון</h2>
     <p class="small" style="margin:-4px 0 12px;">אוקטובר 2026 · כל התכנים עולים לפורטל התוכן של המועדון.</p>
 
     <details class="plan">
-      <summary><span class="t">תכנון חודשי</span><svg class="ic arrow"><use href="#i-down"/></svg></summary>
+      <summary><span class="t">תכנון חודשי</span><svg class="ic arrow" aria-hidden="true" focusable="false"><use href="#i-down"/></svg></summary>
       <div class="answer">
         <p><strong>תכנון חודש נובמבר:</strong> הקלטת ההדרכה כבר בפורטל.</p>
         <ul>
           <li>תוכנית עבודה חודשית</li>
           <li>פריסה לנושאי החודש ע"פ תחומי ליבה</li>
         </ul>
-        <a class="link" href="https://my.schooler.biz/s/79790/1723446311993/DIMPiSU?tid=0" target="_blank" rel="noopener">לצפייה בהדרכה <svg class="ic"><use href="#i-left"/></svg></a>
+        <a class="link" href="https://my.schooler.biz/s/79790/1723446311993/DIMPiSU?tid=0" target="_blank" rel="noopener">לצפייה בהדרכה <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a>
       </div>
     </details>
 
     <details class="plan">
-      <summary><span class="t">מפגש שאלות ותשובות <span class="when">20.10 · 20:30</span></span><svg class="ic arrow"><use href="#i-down"/></svg></summary>
+      <summary><span class="t">מפגש שאלות ותשובות <span class="when">20.10 · 20:30</span></span><svg class="ic arrow" aria-hidden="true" focusable="false"><use href="#i-down"/></svg></summary>
       <div class="answer">
         <p>מפגש לייב בזום יתקיים בתאריך 20.10.26 בשעה 20:30.</p>
         <p>הכיני מראש שאלות ממוקדות.</p>
@@ -240,7 +167,7 @@
     </details>
 
     <details class="plan">
-      <summary><span class="t">הדרכות מקצועיות</span><svg class="ic arrow"><use href="#i-down"/></svg></summary>
+      <summary><span class="t">הדרכות מקצועיות</span><svg class="ic arrow" aria-hidden="true" focusable="false"><use href="#i-down"/></svg></summary>
       <div class="answer">
         <ol>
           <li><strong>שיחות עם הורים:</strong> כלים להעברת מסרים מורכבים ברגישות ומקצועיות, ביסוס הסמכות שלך והובלת הורים בביטחון מלא.</li>
@@ -250,7 +177,7 @@
     </details>
 
     <details class="plan">
-      <summary><span class="t">העשרה</span><svg class="ic arrow"><use href="#i-down"/></svg></summary>
+      <summary><span class="t">העשרה</span><svg class="ic arrow" aria-hidden="true" focusable="false"><use href="#i-down"/></svg></summary>
       <div class="answer">
         <ol>
           <li><strong>בינה מלאכותית:</strong> איך למצוא רעיונות ליצירות בקלות ומהחומרים שיש לך בגן?</li>
@@ -261,41 +188,41 @@
   </section>
 
   <!-- ===== מה יש במועדון ===== -->
-  <section id="club">
-    <h2><svg class="ic"><use href="#i-box"/></svg>מה מחכה לך במועדון</h2>
+  <section id="club" class="reveal" aria-labelledby="club-title">
+    <h2 id="club-title"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-box"/></svg>מה מחכה לך במועדון</h2>
     <div class="tiles">
       <a class="card tile" href="https://my.schooler.biz/s/79388/bundles" target="_blank" rel="noopener">
-        <svg class="ic"><use href="#i-play"/></svg>
+        <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
         <h3>פורטל התוכן</h3>
         <p>ספריית קורסים והדרכות מוקלטות</p>
         <span class="go">כניסה</span>
       </a>
       <a class="card tile" href="https://my.schooler.biz/s/79790/1723446311993" target="_blank" rel="noopener">
-        <svg class="ic"><use href="#i-cal"/></svg>
+        <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>
         <h3>תוכנית עבודה חודשית</h3>
         <p>הדרכה מוקלטת לתכנון החודש, בתחילת כל חודש</p>
         <span class="go">לתכנון החודשי</span>
       </a>
       <a class="card tile" href="#vault">
-        <svg class="ic"><use href="#i-folder"/></svg>
+        <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-folder"/></svg>
         <h3>כספת התכנים</h3>
         <p>תיקיות מסודרות עם קבצים וחומרים לגן</p>
         <span class="go">לכספת</span>
       </a>
       <a class="card tile" href="#kits">
-        <svg class="ic"><use href="#i-box"/></svg>
+        <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-box"/></svg>
         <h3>ערכות למידה</h3>
         <p>ערכות מוכנות להדפסה, לפי נושא וגיל</p>
         <span class="go">לערכות</span>
       </a>
-      <div class="card tile info">
-        <svg class="ic"><use href="#i-video"/></svg>
+      <a class="card tile" href="#schedule">
+        <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-video"/></svg>
         <h3>מפגש שאלות ותשובות</h3>
         <p>מפגש חי פעם בחודש, עם מענה לשאלות שלך</p>
-        <a class="go" href="#schedule">המועד בתוכנית החודש</a>
-      </div>
+        <span class="go">המועד בתוכנית החודש</span>
+      </a>
       <div class="card tile info">
-        <svg class="ic"><use href="#i-chat"/></svg>
+        <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg>
         <h3>קבוצות הוואטסאפ</h3>
         <p>"עדכונים" להודעות החשובות, ו"קהילה" להתייעץ, לשאול ולקבל השראה</p>
         <span class="go">כבר בטלפון שלך</span>
@@ -304,54 +231,56 @@
   </section>
 
   <!-- ===== כספת התכנים ===== -->
-  <section id="vault">
-    <h2><svg class="ic"><use href="#i-folder"/></svg>כספת התכנים</h2>
+  <section id="vault" class="reveal" aria-labelledby="vault-title">
+    <h2 id="vault-title"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-folder"/></svg>כספת התכנים</h2>
     <div class="card">
-      <a class="portal-btn" style="margin:0 0 10px; font-size:18px; padding:14px 18px;" href="https://drive.google.com/drive/folders/1gWZ2d-GMRm7BiyMfPkXwq50lIYrFy1hn" target="_blank" rel="noopener">
-        <svg class="ic"><use href="#i-folder"/></svg>
+      <a class="btn" style="margin:0 0 10px;" href="https://drive.google.com/drive/folders/1gWZ2d-GMRm7BiyMfPkXwq50lIYrFy1hn" target="_blank" rel="noopener">
+        <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-folder"/></svg>
         פתיחת כספת התכנים
       </a>
       <p class="group-title">קיצורי דרך לתיקיות שימושיות</p>
       <ul class="links">
-        <li><a href="https://drive.google.com/drive/folders/1A2P755ctre6lNRlhnAJIRO4oaiWc-odX" target="_blank" rel="noopener">כלי עזר לתכנון חודשי <svg class="ic"><use href="#i-left"/></svg></a></li>
-        <li><a href="https://drive.google.com/drive/folders/157sPovLjyp3lP8tnfw--QRPLPLxwPL4r" target="_blank" rel="noopener">תוכניות עבודה לפי נושאים <svg class="ic"><use href="#i-left"/></svg></a></li>
-        <li><a href="https://drive.google.com/drive/folders/1jpD2JZpMqJAZtDXjxz134vEIDzXUdcsZ" target="_blank" rel="noopener">חגים <svg class="ic"><use href="#i-left"/></svg></a></li>
-        <li><a href="https://drive.google.com/drive/folders/1hD9d4mRRV1V_1Q4SUKt-s_FA7AVM1vzU" target="_blank" rel="noopener">עונות השנה <svg class="ic"><use href="#i-left"/></svg></a></li>
-        <li><a href="https://drive.google.com/drive/folders/1z5XYH4W5f6Wq3LS2Z-NFbfIU_uY-XuRJ" target="_blank" rel="noopener">עיצוב סביבת הגן <svg class="ic"><use href="#i-left"/></svg></a></li>
-        <li><a href="https://drive.google.com/drive/folders/1-9N-3Y8lYRHp9-tjIXg_RxYLHIWdmrWl" target="_blank" rel="noopener">רגשי-חברתי <svg class="ic"><use href="#i-left"/></svg></a></li>
+        <li><a href="https://drive.google.com/drive/folders/1A2P755ctre6lNRlhnAJIRO4oaiWc-odX" target="_blank" rel="noopener"><span class="fi c1"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-clip"/></svg></span>כלי עזר לתכנון חודשי<svg class="ic chev" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a></li>
+        <li><a href="https://drive.google.com/drive/folders/157sPovLjyp3lP8tnfw--QRPLPLxwPL4r" target="_blank" rel="noopener"><span class="fi c2"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-book"/></svg></span>תוכניות עבודה לפי נושאים<svg class="ic chev" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a></li>
+        <li><a href="https://drive.google.com/drive/folders/1jpD2JZpMqJAZtDXjxz134vEIDzXUdcsZ" target="_blank" rel="noopener"><span class="fi c3"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-star"/></svg></span>חגים<svg class="ic chev" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a></li>
+        <li><a href="https://drive.google.com/drive/folders/1hD9d4mRRV1V_1Q4SUKt-s_FA7AVM1vzU" target="_blank" rel="noopener"><span class="fi c4"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-sun"/></svg></span>עונות השנה<svg class="ic chev" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a></li>
+        <li><a href="https://drive.google.com/drive/folders/1z5XYH4W5f6Wq3LS2Z-NFbfIU_uY-XuRJ" target="_blank" rel="noopener"><span class="fi c5"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-home"/></svg></span>עיצוב סביבת הגן<svg class="ic chev" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a></li>
+        <li><a href="https://drive.google.com/drive/folders/1-9N-3Y8lYRHp9-tjIXg_RxYLHIWdmrWl" target="_blank" rel="noopener"><span class="fi c6"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg></span>רגשי-חברתי<svg class="ic chev" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a></li>
       </ul>
+      <p class="small" style="margin:10px 0 0;">מחפשת משהו אחר? כתבי אותו בחיפוש למעלה.</p>
     </div>
   </section>
 
-  <!-- ===== ערכות למידה ===== -->
-  <section id="kits">
-    <h2><svg class="ic"><use href="#i-box"/></svg>ערכות למידה</h2>
-    <div class="card">
-      <p class="small" style="margin:0 0 6px;">כל ערכה בתיקייה משלה בכספת, מוכנה להדפסה.</p>
-      <p class="group-title">עונות וחגים</p>
-      <ul class="links">
-        <li><a href="https://drive.google.com/drive/folders/14eDLLSbRJ1x45ouzzabWCao7RP8cp78m" target="_blank" rel="noopener">עונת הסתיו · גילאי 3-6 <svg class="ic"><use href="#i-left"/></svg></a></li>
-        <li><a href="https://drive.google.com/drive/folders/1n2r_hVF2AjyRw2fokba_UhDS91EVD0Oi" target="_blank" rel="noopener">עונת החורף · גילאי 3-6 <svg class="ic"><use href="#i-left"/></svg></a></li>
-        <li><a href="https://drive.google.com/drive/folders/1kzl6fhnTrUYS58GEUY_Vf48Qgy91ozkQ" target="_blank" rel="noopener">חנוכה · גילאי 3-6 <svg class="ic"><use href="#i-left"/></svg></a></li>
-      </ul>
-      <p class="group-title">שפה וחשבון</p>
-      <ul class="links">
-        <li><a href="https://drive.google.com/drive/folders/1iRXOZLnS--BBdE1WTotw01BUZiT3imtE" target="_blank" rel="noopener">שפה ואוריינות · גילאי 3-4 <svg class="ic"><use href="#i-left"/></svg></a></li>
-        <li><a href="https://drive.google.com/drive/folders/1sOp16WcsT3y82nYpEH48boZlQ53dpHIp" target="_blank" rel="noopener">שפה ואוריינות · גילאי 5-6 <svg class="ic"><use href="#i-left"/></svg></a></li>
-        <li><a href="https://drive.google.com/drive/folders/1_WliDEE7an7CLvs6vHZncpgfywG3R55C" target="_blank" rel="noopener">חשבון · גילאי 3-4 <svg class="ic"><use href="#i-left"/></svg></a></li>
-        <li><a href="https://drive.google.com/drive/folders/1NJ6omg3mz3O-dSy31BLc2DShHviUvWgy" target="_blank" rel="noopener">חשבון · גילאי 5-6 <svg class="ic"><use href="#i-left"/></svg></a></li>
-      </ul>
-      <p class="group-title">נושאים</p>
-      <ul class="links">
-        <li><a href="https://drive.google.com/drive/folders/1OZAZhlsLgGzVb0NP5fHWOFI8BegpBpl-" target="_blank" rel="noopener">בעלי חיים · גן רב גילאי 3-6 <svg class="ic"><use href="#i-left"/></svg></a></li>
-        <li><a href="https://drive.google.com/drive/folders/1elWCKzDdljZe90RhiFqMrQmVqr_nHDkF" target="_blank" rel="noopener">צבעים וצורות · גילאי שנתיים וחצי <svg class="ic"><use href="#i-left"/></svg></a></li>
-      </ul>
+  <!-- ===== ערכות למידה: כל ערכה בתיקייה משלה בתוך "ערכות למידה" בכספת ===== -->
+  <section id="kits" class="reveal" aria-labelledby="kits-title">
+    <h2 id="kits-title"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-box"/></svg>ערכות למידה</h2>
+    <p class="small" style="margin:-4px 0 0;">כל ערכה בתיקייה משלה בכספת, מוכנה להדפסה.</p>
+
+    <h3 class="kits-group">עונות וחגים</h3>
+    <div class="kits">
+      <a class="card kit" href="https://drive.google.com/drive/folders/14eDLLSbRJ1x45ouzzabWCao7RP8cp78m" target="_blank" rel="noopener"><img src="img/kits/autumn.jpg" alt="" width="480" height="360" loading="lazy"><span class="name">עונת הסתיו</span><span class="age">גילאי 3-6</span></a>
+      <a class="card kit" href="https://drive.google.com/drive/folders/1n2r_hVF2AjyRw2fokba_UhDS91EVD0Oi" target="_blank" rel="noopener"><img src="img/kits/winter.jpg" alt="" width="480" height="360" loading="lazy"><span class="name">עונת החורף</span><span class="age">גילאי 3-6</span></a>
+      <a class="card kit" href="https://drive.google.com/drive/folders/1kzl6fhnTrUYS58GEUY_Vf48Qgy91ozkQ" target="_blank" rel="noopener"><img src="img/kits/hanukkah.jpg" alt="" width="480" height="360" loading="lazy"><span class="name">חנוכה</span><span class="age">גילאי 3-6</span></a>
+    </div>
+
+    <h3 class="kits-group">שפה וחשבון</h3>
+    <div class="kits">
+      <a class="card kit" href="https://drive.google.com/drive/folders/1iRXOZLnS--BBdE1WTotw01BUZiT3imtE" target="_blank" rel="noopener"><img src="img/kits/language-3-4.jpg" alt="" width="480" height="360" loading="lazy"><span class="name">שפה ואוריינות</span><span class="age">גילאי 3-4</span></a>
+      <a class="card kit" href="https://drive.google.com/drive/folders/1sOp16WcsT3y82nYpEH48boZlQ53dpHIp" target="_blank" rel="noopener"><img src="img/kits/language-5-6.jpg" alt="" width="480" height="360" loading="lazy"><span class="name">שפה ואוריינות</span><span class="age">גילאי 5-6</span></a>
+      <a class="card kit" href="https://drive.google.com/drive/folders/1_WliDEE7an7CLvs6vHZncpgfywG3R55C" target="_blank" rel="noopener"><img src="img/kits/math-3-4.jpg" alt="" width="480" height="360" loading="lazy"><span class="name">חשבון</span><span class="age">גילאי 3-4</span></a>
+      <a class="card kit" href="https://drive.google.com/drive/folders/1NJ6omg3mz3O-dSy31BLc2DShHviUvWgy" target="_blank" rel="noopener"><img src="img/kits/math-5-6.jpg" alt="" width="480" height="360" loading="lazy"><span class="name">חשבון</span><span class="age">גילאי 5-6</span></a>
+    </div>
+
+    <h3 class="kits-group">נושאים</h3>
+    <div class="kits">
+      <a class="card kit" href="https://drive.google.com/drive/folders/1OZAZhlsLgGzVb0NP5fHWOFI8BegpBpl-" target="_blank" rel="noopener"><img src="img/kits/animals.jpg" alt="" width="480" height="360" loading="lazy"><span class="name">בעלי חיים</span><span class="age">גן רב גילאי 3-6</span></a>
+      <a class="card kit" href="https://drive.google.com/drive/folders/1elWCKzDdljZe90RhiFqMrQmVqr_nHDkF" target="_blank" rel="noopener"><img src="img/kits/colors-shapes.jpg" alt="" width="480" height="360" loading="lazy"><span class="name">צבעים וצורות</span><span class="age">גילאי שנתיים וחצי</span></a>
     </div>
   </section>
 
   <!-- ===== עזרה ושאלות נפוצות ===== -->
-  <section id="help">
-    <h2><svg class="ic"><use href="#i-help"/></svg>צריכה עזרה?</h2>
+  <section id="help" class="reveal" aria-labelledby="help-title">
+    <h2 id="help-title"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-help"/></svg>צריכה עזרה?</h2>
 
     <details>
       <summary>איך נכנסים לפורטל התוכן?</summary>
@@ -361,6 +290,7 @@
           <li>התחברי עם המייל שאיתו נרשמת למועדון.</li>
           <li>בתוך כל קורס יש 3 פסים למעלה. לחיצה עליהם פותחת את כל השיעורים בקורס.</li>
         </ol>
+        <p>הסבר מפורט נמצא <a href="https://docs.google.com/document/d/1D9RWWdTpgFitQ6dRYPF421nI_laHAf1SZE3qS4vfQsI/edit?usp=sharing" target="_blank" rel="noopener">כאן</a>.</p>
         <p>לא מצליחה להיכנס? שלחי הודעת וואטסאפ לשירות הלקוחות במספר <a href="https://wa.me/972557771325" target="_blank" rel="noopener">055-7771325</a>, ונשלח לך קישור כניסה חדש.</p>
       </div>
     </details>
@@ -405,6 +335,13 @@
     </details>
 
     <details>
+      <summary>איך מגדילים את הטקסט בדף?</summary>
+      <div class="answer">
+        <p>בראש הדף יש שני כפתורים: "א+" מגדיל את הטקסט ו"א-" מקטין אותו. הדף זוכר את הבחירה שלך לפעם הבאה.</p>
+      </div>
+    </details>
+
+    <details>
       <summary>מה ההבדל בין שתי קבוצות הוואטסאפ?</summary>
       <div class="answer">
         <p><strong>מועדון מגשימה 💫 עדכונים:</strong> ההודעות החשובות מהמועדון, כדי שלא תפספסי כלום.</p>
@@ -421,13 +358,29 @@
     </details>
   </section>
 
+  </main>
+
   <footer>
     <p class="quote">"הגן לא אמור לנהל אותך. את אמורה לנהל אותו."</p>
     <p class="sign">באהבה ענקית, שיר גמזו</p>
     <p class="small">שיר גמזו, ליווי לגננות ונשות חינוך</p>
-    <p class="portal-note" style="margin-top:18px;">כדאי לשמור את הדף בטלפון. <a href="#save-page" onclick="document.getElementById('save-page').open = true">איך עושים את זה?</a></p>
+    <p class="note" style="margin-top:18px;">כדאי לשמור את הדף בטלפון. <a href="#save-page">איך עושים את זה?</a></p>
+    <div class="links-row">
+      <a href="accessibility.html">הצהרת נגישות</a>
+      <a href="https://wa.me/972557771325" target="_blank" rel="noopener">שירות לקוחות בוואטסאפ</a>
+    </div>
+    <p class="small">הדף עודכן לאחרונה ב-18.10.2026</p>
   </footer>
 
 </div>
+
+<nav class="bottom-nav" aria-label="ניווט מהיר">
+  <a class="main" href="https://my.schooler.biz/s/79388/bundles" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>פורטל</a>
+  <a href="#vault"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-folder"/></svg>כספת</a>
+  <a href="#schedule"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>החודש</a>
+  <a href="#help"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-help"/></svg>עזרה</a>
+</nav>
+
+<script src="app.js?v=20261018"></script>
 </body>
 </html>

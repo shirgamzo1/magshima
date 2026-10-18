@@ -1,0 +1,247 @@
+/* מועדון מגשימה: עיצוב משותף לדף הבית ולהצהרת הנגישות.
+   גדלי טקסט ב-rem, כדי שכפתור הגדלת הטקסט וההגדרות של הטלפון יגדילו הכול יחד.
+   הצבעים נבדקו לניגודיות: טקסט רגיל 4.5:1 לפחות, טקסט גדול ומודגש על כפתור ורוד 3:1 לפחות. */
+:root {
+  --beige: #f4ede3;
+  --beige-deep: #eadfce;
+  --pink: #ec47a6;        /* צבע המותג: רקע לכפתורים גדולים ולאייקונים */
+  --pink-ink: #b8287a;    /* ורוד לטקסט */
+  --pink-soft: #fde6f2;
+  --brown: #82553a;
+  --ink: #3b2f2a;
+  --muted: #65564d;
+  --white: #ffffff;
+  --line: #e7dccd;
+  --radius: 18px;
+  --shadow: 0 2px 12px rgba(80, 50, 30, .08);
+  --nav-h: 64px;
+}
+html[data-fs="1"] { font-size: 112.5%; }
+html[data-fs="2"] { font-size: 125%; }
+html[data-fs="3"] { font-size: 137.5%; }
+* { box-sizing: border-box; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body {
+  margin: 0;
+  background: var(--beige);
+  color: var(--ink);
+  font-family: "Assistant", Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+a { color: inherit; }
+img { max-width: 100%; }
+.wrap { max-width: 640px; margin: 0 auto; padding: 0 16px 48px; }
+h1, h2, h3 { font-family: "Rubik", "Assistant", sans-serif; line-height: 1.25; margin: 0; }
+h2 { font-size: 1.4375rem; display: flex; align-items: center; gap: 10px; }
+h2 .ic { width: 36px; height: 36px; padding: 8px; border-radius: 50%; background: var(--pink); color: var(--white); flex: none; }
+h3 { font-size: 1.125rem; }
+.ic { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.small { font-size: .9375rem; color: var(--muted); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible {
+  outline: 3px solid var(--pink-ink); outline-offset: 3px; border-radius: 10px;
+}
+
+/* דלגי לתוכן */
+.skip {
+  position: absolute; top: -100px; right: 16px; z-index: 50; background: var(--ink); color: var(--white);
+  padding: 10px 16px; border-radius: 10px; text-decoration: none; font-weight: 700;
+}
+.skip:focus { top: 10px; }
+
+/* גודל טקסט */
+.topbar { display: flex; justify-content: flex-end; align-items: center; gap: 8px; padding-top: 10px; }
+.topbar .label { font-size: .875rem; color: var(--muted); }
+.fs-btn {
+  min-width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--line); background: var(--white);
+  font-family: "Rubik", sans-serif; font-weight: 700; font-size: 1rem; color: var(--ink); cursor: pointer;
+}
+.fs-btn:disabled { opacity: .45; cursor: default; }
+
+/* ראש הדף */
+header { text-align: center; }
+header h1 { margin: 2px 0 0; }
+header .logo { width: 220px; max-width: 64%; height: auto; display: inline-block; }
+.hero {
+  background: linear-gradient(160deg, var(--white) 55%, #fbf3f7);
+  border-radius: 22px; box-shadow: var(--shadow); padding: 20px 18px; margin-top: 12px;
+  display: flex; gap: 16px; align-items: center; text-align: right;
+}
+.hero img { width: 108px; height: 108px; border-radius: 50%; object-fit: cover; flex: none; border: 4px solid var(--beige); box-shadow: 0 0 0 3px var(--pink-soft); }
+.hero p { margin: 0; }
+.hero .hi { font-family: "Rubik", sans-serif; font-weight: 700; font-size: 1.375rem; line-height: 1.3; margin-bottom: 6px; }
+@media (max-width: 380px) { .hero { flex-direction: column; text-align: center; } }
+
+/* כפתורים */
+.btn {
+  display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px;
+  padding: 14px 20px; border-radius: 999px; background: var(--pink); color: var(--white); text-decoration: none;
+  font-family: "Rubik", sans-serif; font-weight: 700; font-size: 1.1875rem; box-shadow: 0 6px 18px rgba(236, 71, 166, .3);
+}
+.btn.big { font-size: 1.25rem; min-height: 60px; margin: 16px 0 6px; }
+.btn:active { transform: translateY(1px); }
+.btn-line {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 8px 16px;
+  border-radius: 999px; border: 2px solid var(--pink-ink); color: var(--pink-ink); background: var(--white);
+  font-weight: 700; text-decoration: none; font-size: 1rem; cursor: pointer; font-family: inherit;
+}
+.note { text-align: center; font-size: .9375rem; color: var(--muted); margin: 0; }
+.note a { color: var(--brown); font-weight: 700; }
+
+/* כרטיסים */
+section { margin-top: 32px; scroll-margin-top: 12px; }
+section > h2 { margin-bottom: 12px; }
+.card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px 18px; }
+.stack > * + * { margin-top: 12px; }
+.link { display: inline-flex; align-items: center; gap: 4px; margin-top: 8px; color: var(--pink-ink); font-weight: 700; text-decoration: none; min-height: 32px; }
+.link .ic { width: 18px; height: 18px; }
+.pill { background: var(--pink-soft); color: var(--pink-ink); font-weight: 700; font-size: .875rem; padding: 1px 10px; border-radius: 999px; }
+
+/* חיפוש */
+.search { margin-top: 18px; }
+.search label { display: block; font-family: "Rubik", sans-serif; font-weight: 700; font-size: 1.125rem; margin-bottom: 8px; }
+.search .field { position: relative; }
+.search .field .ic { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
+.search input {
+  width: 100%; min-height: 52px; border: 2px solid var(--line); border-radius: 14px; padding: 10px 46px 10px 14px;
+  font-family: inherit; font-size: 1.0625rem; color: var(--ink); background: var(--white);
+}
+.search input::placeholder { color: #8a7a70; }
+.search input:focus { border-color: var(--pink-ink); outline: none; }
+.search .hint { margin: 8px 2px 0; }
+.results { list-style: none; margin: 10px 0 0; padding: 0; }
+.results li + li { border-top: 1px solid var(--line); }
+.results a { display: flex; gap: 12px; align-items: center; padding: 10px 2px; text-decoration: none; min-height: 52px; }
+.results .kind { width: 38px; height: 38px; border-radius: 10px; background: var(--pink-soft); color: var(--pink-ink); display: grid; place-items: center; flex: none; }
+.results .kind.d { background: #fdf0d8; color: #8a5a10; }
+.results .kind.f { background: #e9eef8; color: #2f4f86; }
+.results .kind .ic { width: 20px; height: 20px; }
+.results .t { display: block; font-weight: 700; line-height: 1.35; overflow-wrap: anywhere; }
+.results .p { display: block; font-size: .875rem; color: var(--muted); overflow-wrap: anywhere; }
+.results .type { font-size: .8125rem; font-weight: 700; color: var(--brown); white-space: nowrap; margin-inline-start: auto; }
+.status { margin: 10px 2px 0; font-size: .9375rem; color: var(--muted); }
+
+/* הדבר הבא */
+.next { border: 2px solid var(--pink-soft); background: linear-gradient(160deg, var(--white) 50%, #fdeef6); }
+.next .label { font-size: .875rem; font-weight: 700; color: var(--pink-ink); letter-spacing: .02em; }
+.next h3 { font-size: 1.3125rem; margin: 2px 0 4px; }
+.next .when { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.next .count { background: var(--pink); color: var(--white); font-weight: 700; padding: 2px 12px; border-radius: 999px; font-size: 1rem; }
+.next .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+
+/* התחילי כאן */
+.start ol { list-style: none; margin: 10px 0 0; padding: 0; counter-reset: s; }
+.start li { counter-increment: s; display: flex; gap: 12px; align-items: flex-start; padding: 8px 0; }
+.start li::before {
+  content: counter(s); flex: none; width: 34px; height: 34px; border-radius: 50%; background: var(--pink); color: var(--white);
+  display: grid; place-items: center; font-family: "Rubik", sans-serif; font-weight: 700;
+}
+.start li a { color: var(--pink-ink); font-weight: 700; }
+.start .hide { margin-top: 8px; background: none; border: 0; color: var(--muted); text-decoration: underline; font-family: inherit; font-size: .9375rem; cursor: pointer; min-height: 44px; padding: 0 4px; }
+
+/* ניווט בדף */
+nav.chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 22px 0 4px; }
+nav.chips a {
+  display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; background: var(--white); border: 1px solid var(--line);
+  padding: 6px 16px; border-radius: 999px; font-size: .9375rem; font-weight: 700; color: var(--brown);
+}
+
+/* עדכונים */
+.update { border-right: 5px solid var(--pink); }
+.update .meta { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.update p { margin: 4px 0 0; }
+.older { margin-top: 12px; }
+
+/* חלונות (תוכנית החודש ושאלות נפוצות) */
+details { background: var(--white); border-radius: 14px; box-shadow: var(--shadow); }
+details + details { margin-top: 10px; }
+summary {
+  cursor: pointer; list-style: none; padding: 14px 18px; font-weight: 700; min-height: 52px;
+  display: flex; justify-content: space-between; align-items: center; gap: 10px;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; font-size: 1.375rem; color: var(--pink-ink); font-weight: 700; line-height: 1; }
+details[open] summary::after { content: "−"; }
+details .answer { padding: 0 18px 16px; }
+details .answer p { margin: 0 0 8px; }
+details ol, details ul { margin: 4px 0 8px; padding-right: 22px; }
+details li + li { margin-top: 6px; }
+.answer a { color: var(--pink-ink); font-weight: 700; }
+.group-title { font-weight: 700; color: var(--brown); font-size: .9375rem; margin: 4px 0 0; }
+.plan { border-right: 5px solid var(--pink); }
+.plan summary { font-family: "Rubik", "Assistant", sans-serif; font-size: 1.125rem; }
+.plan summary::after, .plan[open] summary::after { content: none; }
+.plan .t { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+.plan .when { font-family: "Assistant", sans-serif; font-size: .875rem; font-weight: 700; color: var(--pink-ink); background: var(--pink-soft); padding: 1px 10px; border-radius: 999px; }
+.plan .arrow { width: 24px; height: 24px; color: var(--pink-ink); transition: transform .2s; }
+.plan[open] .arrow { transform: rotate(180deg); }
+.plan .link { margin-top: 0; }
+
+/* מה יש במועדון */
+.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.tile { display: flex; flex-direction: column; gap: 6px; text-decoration: none; padding: 16px; }
+.tile .ic { width: 42px; height: 42px; padding: 10px; border-radius: 12px; background: var(--pink-soft); color: var(--pink-ink); }
+.tile p { margin: 0; font-size: .9375rem; color: var(--muted); }
+.tile .go { margin-top: auto; padding-top: 4px; color: var(--pink-ink); font-weight: 700; font-size: .9375rem; }
+.tile.info .go { color: var(--muted); }
+@media (max-width: 340px) { .tiles { grid-template-columns: 1fr; } }
+
+/* קישורים עם אייקון (כספת) */
+.links { list-style: none; margin: 0; padding: 0; }
+.links li + li { border-top: 1px solid var(--line); }
+.links a { display: flex; align-items: center; gap: 12px; padding: 8px 2px; min-height: 56px; text-decoration: none; font-weight: 700; }
+.links .chev { width: 18px; height: 18px; color: var(--pink-ink); margin-inline-start: auto; }
+.fi { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; flex: none; }
+.fi .ic { width: 20px; height: 20px; }
+.fi.c1 { background: #fde6f2; color: #a8226c; }
+.fi.c2 { background: #f3e6d8; color: #7a4e33; }
+.fi.c3 { background: #fff1c7; color: #7d5a00; }
+.fi.c4 { background: #ffe6d1; color: #94430b; }
+.fi.c5 { background: #e2f1e6; color: #2f6b3f; }
+.fi.c6 { background: #fde2e2; color: #a12d2d; }
+
+/* ערכות למידה */
+.kits { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
+.kit { padding: 0; overflow: hidden; text-decoration: none; display: flex; flex-direction: column; }
+.kit img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: var(--beige-deep); }
+.kit .name { font-weight: 700; padding: 8px 12px 0; line-height: 1.3; }
+.kit .age { font-size: .875rem; color: var(--muted); padding: 0 12px 10px; }
+.kits-group { font-family: "Rubik", sans-serif; font-weight: 700; color: var(--brown); font-size: 1rem; margin: 18px 2px 0; }
+
+/* תחתית */
+footer { text-align: center; margin-top: 40px; color: var(--muted); }
+footer .quote { font-family: "Rubik", sans-serif; font-weight: 600; font-size: 1.1875rem; color: var(--brown); margin: 0 0 14px; }
+footer p { margin: 2px 0; }
+footer .sign { color: var(--ink); font-weight: 700; }
+footer .links-row { margin-top: 16px; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 18px; }
+footer .links-row a { color: var(--brown); font-weight: 700; display: inline-flex; align-items: center; min-height: 44px; }
+
+/* סרגל כפתורים קבוע בטלפון */
+.bottom-nav { display: none; }
+@media (max-width: 760px) {
+  body { padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom)); }
+  .bottom-nav {
+    display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 40; background: var(--white);
+    border-top: 1px solid var(--line); box-shadow: 0 -4px 16px rgba(80, 50, 30, .08);
+    padding: 4px 4px env(safe-area-inset-bottom);
+  }
+  .bottom-nav a {
+    flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+    min-height: var(--nav-h); text-decoration: none; color: var(--ink); font-size: .8125rem; font-weight: 700; border-radius: 12px;
+  }
+  .bottom-nav a .ic { width: 24px; height: 24px; color: var(--pink-ink); }
+  .bottom-nav a.main .ic { background: var(--pink); color: var(--white); border-radius: 50%; padding: 5px; width: 32px; height: 32px; }
+}
+
+/* תנועה עדינה בגלילה (רק כשהטלפון לא ביקש להפחית תנועה) */
+html.anim .reveal { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
+html.anim .reveal.in { opacity: 1; transform: none; }
+
+/* הצהרת נגישות */
+.doc { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px 20px; margin-top: 16px; }
+.doc h1 { font-size: 1.75rem; margin-bottom: 8px; }
+.doc h2 { font-size: 1.25rem; margin: 22px 0 6px; }
+.doc ul { padding-right: 22px; }
+.doc a { color: var(--pink-ink); font-weight: 700; }
