@@ -126,7 +126,18 @@
   details[open] summary::after { content: "−"; }
   details .answer { padding: 0 18px 16px; }
   details .answer p { margin: 0 0 8px; }
-  details ol { margin: 4px 0 8px; padding-right: 22px; }
+  details ol, details ul { margin: 4px 0 8px; padding-right: 22px; }
+  details li + li { margin-top: 6px; }
+
+  /* חלונות תוכנית החודש */
+  .plan { border-right: 5px solid var(--pink); }
+  .plan summary { font-family: "Rubik", "Assistant", sans-serif; font-size: 18px; }
+  .plan summary::after, .plan[open] summary::after { content: none; }
+  .plan .t { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+  .plan .when { font-family: "Assistant", sans-serif; font-size: 14px; font-weight: 700; color: #b8287a; background: var(--pink-soft); padding: 1px 10px; border-radius: 999px; }
+  .plan .arrow { width: 24px; height: 24px; color: var(--pink); flex: none; transition: transform .2s; }
+  .plan[open] .arrow { transform: rotate(180deg); }
+  .plan .link { margin-top: 0; }
 
   /* מקום שעוד צריך למלא (יוסר לפני שמשתפים) */
   .todo { background: #fff4c2; outline: 2px dashed #d9a400; border-radius: 6px; padding: 0 4px; }
@@ -151,6 +162,7 @@
   <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></symbol>
   <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
   <symbol id="i-left" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></symbol>
 </svg>
 
 <div class="wrap">
@@ -174,7 +186,7 @@
 
   <nav class="chips" aria-label="ניווט בדף">
     <a href="#updates">עדכונים</a>
-    <a href="#schedule">הלוז החודשי</a>
+    <a href="#schedule">תוכנית החודש</a>
     <a href="#club">מה יש במועדון</a>
     <a href="#kits">ערכות למידה</a>
     <a href="#help">עזרה</a>
@@ -202,32 +214,50 @@
     </div>
   </section>
 
-  <!-- ===== הלוז החודשי ===== -->
+  <!-- ===== תוכנית החודש: להחליף בתחילת כל חודש ===== -->
   <section id="schedule">
-    <h2><svg class="ic"><use href="#i-cal"/></svg>הלוז של נובמבר</h2>
-    <div class="card schedule">
-      <div class="row">
-        <div class="date">כבר<br>בפורטל</div>
-        <div>
-          <h3>הדרכת תכנון נובמבר</h3>
-          <p class="small">הדרכה מוקלטת לתכנון החודש, עם כל הקבצים.</p>
-        </div>
+    <h2><svg class="ic"><use href="#i-cal"/></svg>תוכנית החודש במועדון</h2>
+    <p class="small" style="margin:-4px 0 12px;">אוקטובר 2026 · כל התכנים עולים לפורטל התוכן של המועדון.</p>
+
+    <details class="plan">
+      <summary><span class="t">תכנון חודשי</span><svg class="ic arrow"><use href="#i-down"/></svg></summary>
+      <div class="answer">
+        <p><strong>תכנון חודש נובמבר:</strong> הקלטת ההדרכה כבר בפורטל.</p>
+        <ul>
+          <li>תוכנית עבודה חודשית</li>
+          <li>פריסה לנושאי החודש ע"פ תחומי ליבה</li>
+        </ul>
+        <a class="link" href="https://my.schooler.biz/s/79790/1723446311993/DIMPiSU?tid=0" target="_blank" rel="noopener">לצפייה בהדרכה <svg class="ic"><use href="#i-left"/></svg></a>
       </div>
-      <div class="row">
-        <div class="date"><span class="todo">תאריך</span></div>
-        <div>
-          <h3>מפגש שאלות ותשובות חי</h3>
-          <p class="small"><span class="todo">שעה + איפה המפגש (זום?) + קישור</span></p>
-        </div>
+    </details>
+
+    <details class="plan">
+      <summary><span class="t">מפגש שאלות ותשובות <span class="when">20.10 · 20:30</span></span><svg class="ic arrow"><use href="#i-down"/></svg></summary>
+      <div class="answer">
+        <p>מפגש לייב בזום יתקיים בתאריך 20.10.26 בשעה 20:30.</p>
+        <p>הכיני מראש שאלות ממוקדות.</p>
       </div>
-      <div class="row">
-        <div class="date">תחילת<br>דצמבר</div>
-        <div>
-          <h3>תכנון דצמבר עולה לפורטל</h3>
-          <p class="small">ההדרכה החודשית הבאה, בקורס "תכנון חודשי".</p>
-        </div>
+    </details>
+
+    <details class="plan">
+      <summary><span class="t">הדרכות מקצועיות</span><svg class="ic arrow"><use href="#i-down"/></svg></summary>
+      <div class="answer">
+        <ol>
+          <li><strong>שיחות עם הורים:</strong> כלים להעברת מסרים מורכבים ברגישות ומקצועיות, ביסוס הסמכות שלך והובלת הורים בביטחון מלא.</li>
+          <li><strong>למידה חווייתית:</strong> מה זה אומר באמת ואיך עושים את זה בקלות ובהלימה לנושאים הנלמדים בגן.</li>
+        </ol>
       </div>
-    </div>
+    </details>
+
+    <details class="plan">
+      <summary><span class="t">העשרה</span><svg class="ic arrow"><use href="#i-down"/></svg></summary>
+      <div class="answer">
+        <ol>
+          <li><strong>בינה מלאכותית:</strong> איך למצוא רעיונות ליצירות בקלות ומהחומרים שיש לך בגן?</li>
+          <li><strong>התפתחות אישית:</strong> "ללמוד להגיד לא" - הצבת גבולות אישיים מול הסביבה שלנו, כדי לשמור על המרחב האישי ולמנוע שחיקה מהירה.</li>
+        </ol>
+      </div>
+    </details>
   </section>
 
   <!-- ===== מה יש במועדון ===== -->
@@ -262,7 +292,7 @@
         <svg class="ic"><use href="#i-video"/></svg>
         <h3>מפגש שאלות ותשובות</h3>
         <p>מפגש חי פעם בחודש, עם מענה לשאלות שלך</p>
-        <a class="go" href="#schedule">המועד בלוז החודשי</a>
+        <a class="go" href="#schedule">המועד בתוכנית החודש</a>
       </div>
       <div class="card tile info">
         <svg class="ic"><use href="#i-chat"/></svg>
@@ -331,7 +361,7 @@
           <li>התחברי עם המייל שאיתו נרשמת למועדון.</li>
           <li>בתוך כל קורס יש 3 פסים למעלה. לחיצה עליהם פותחת את כל השיעורים בקורס.</li>
         </ol>
-        <p>לא מצליחה להיכנס? <span class="todo">איך פונים אלייך</span>, ואשלח לך קישור כניסה חדש.</p>
+        <p>לא מצליחה להיכנס? שלחי הודעת וואטסאפ לשירות הלקוחות במספר <a href="https://wa.me/972557771325" target="_blank" rel="noopener">055-7771325</a>, ונשלח לך קישור כניסה חדש.</p>
       </div>
     </details>
 
@@ -351,7 +381,7 @@
           <li>בדקי שאת מחוברת לגוגל (או לאפליקציית גוגל דרייב) עם המייל הזה.</li>
           <li>אם יש לך כמה חשבונות גוגל, החליפי לחשבון הנכון ונסי שוב.</li>
         </ol>
-        <p>עדיין לא נפתח? <span class="todo">איך פונים אלייך</span>, וכתבי לי עם איזה מייל ניסית להיכנס.</p>
+        <p>עדיין לא נפתח? שלחי הודעת וואטסאפ לשירות הלקוחות במספר <a href="https://wa.me/972557771325" target="_blank" rel="noopener">055-7771325</a>, וכתבי עם איזה מייל ניסית להיכנס.</p>
       </div>
     </details>
 
@@ -386,7 +416,7 @@
       <summary>יש לי שאלה אחרת</summary>
       <div class="answer">
         <p>שאלה מקצועית על הגן? הביאי אותה למפגש השאלות והתשובות החודשי, או שאלי בקבוצת הקהילה.</p>
-        <p>שאלה על המנוי או על הגישה? <span class="todo">איך פונים אלייך</span>.</p>
+        <p>שאלה על המנוי או על הגישה? שלחי הודעת וואטסאפ לשירות הלקוחות במספר <a href="https://wa.me/972557771325" target="_blank" rel="noopener">055-7771325</a>.</p>
       </div>
     </details>
   </section>
