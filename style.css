@@ -64,6 +64,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 header { text-align: center; }
 header h1 { margin: 2px 0 0; }
 header .logo { width: 220px; max-width: 64%; height: auto; display: inline-block; }
+header .site-name { display: block; font-family: "Rubik", sans-serif; font-weight: 700; font-size: 1.125rem; color: var(--brown); margin-top: 2px; }
 .hero {
   background: linear-gradient(160deg, var(--white) 55%, #fbf3f7);
   border-radius: 22px; box-shadow: var(--shadow); padding: 20px 18px; margin-top: 12px;
