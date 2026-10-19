@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Rubik:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20261019">
+<link rel="stylesheet" href="style.css?v=20261019b">
 <script>
   // גודל הטקסט שנבחר בפעם הקודמת, לפני שהדף מצויר (כדי שלא יקפוץ)
   try { var fs = localStorage.getItem('magshima-fs'); if (fs) document.documentElement.setAttribute('data-fs', fs); } catch (e) {}
@@ -105,10 +105,26 @@
     </div>
   </section>
 
-  <a class="btn big vault-btn" href="https://drive.google.com/drive/folders/1gWZ2d-GMRm7BiyMfPkXwq50lIYrFy1hn" target="_blank" rel="noopener">
-    <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-folder"/></svg>
-    כניסה לכספת התכנים
-  </a>
+  <!-- ===== כספת התכנים ===== -->
+  <section id="vault" class="reveal" aria-labelledby="vault-title">
+    <h2 id="vault-title"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-folder"/></svg>כספת התכנים</h2>
+    <div class="card">
+      <a class="btn" style="margin:0 0 10px;" href="https://drive.google.com/drive/folders/1gWZ2d-GMRm7BiyMfPkXwq50lIYrFy1hn" target="_blank" rel="noopener">
+        <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-folder"/></svg>
+        פתיחת כספת התכנים
+      </a>
+      <p class="group-title">קיצורי דרך לתיקיות שימושיות</p>
+      <ul class="links">
+        <li><a href="https://drive.google.com/drive/folders/1A2P755ctre6lNRlhnAJIRO4oaiWc-odX" target="_blank" rel="noopener"><span class="fi c1"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-clip"/></svg></span>כלי עזר לתכנון חודשי<svg class="ic chev" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a></li>
+        <li><a href="https://drive.google.com/drive/folders/157sPovLjyp3lP8tnfw--QRPLPLxwPL4r" target="_blank" rel="noopener"><span class="fi c2"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-book"/></svg></span>תוכניות עבודה לפי נושאים<svg class="ic chev" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a></li>
+        <li><a href="https://drive.google.com/drive/folders/1jpD2JZpMqJAZtDXjxz134vEIDzXUdcsZ" target="_blank" rel="noopener"><span class="fi c3"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-star"/></svg></span>חגים<svg class="ic chev" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a></li>
+        <li><a href="https://drive.google.com/drive/folders/1hD9d4mRRV1V_1Q4SUKt-s_FA7AVM1vzU" target="_blank" rel="noopener"><span class="fi c4"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-sun"/></svg></span>עונות השנה<svg class="ic chev" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a></li>
+        <li><a href="https://drive.google.com/drive/folders/1z5XYH4W5f6Wq3LS2Z-NFbfIU_uY-XuRJ" target="_blank" rel="noopener"><span class="fi c5"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-home"/></svg></span>עיצוב סביבת הגן<svg class="ic chev" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a></li>
+        <li><a href="https://drive.google.com/drive/folders/1-9N-3Y8lYRHp9-tjIXg_RxYLHIWdmrWl" target="_blank" rel="noopener"><span class="fi c6"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg></span>רגשי-חברתי<svg class="ic chev" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a></li>
+      </ul>
+      <p class="small" style="margin:10px 0 0;">מחפשת משהו אחר? כתבי אותו בחיפוש למעלה.</p>
+    </div>
+  </section>
 
   <!-- ===== עדכונים חשובים: הכי חדש למעלה. data-date קובע את "חדש" (שבועיים).
        רק 3 גלויים, השאר עוברים לבד ל"עדכונים קודמים". ===== -->
@@ -232,27 +248,6 @@
         <p>"עדכונים" להודעות החשובות, ו"קהילה" להתייעץ, לשאול ולקבל השראה</p>
         <span class="go">כבר בטלפון שלך</span>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== כספת התכנים ===== -->
-  <section id="vault" class="reveal" aria-labelledby="vault-title">
-    <h2 id="vault-title"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-folder"/></svg>כספת התכנים</h2>
-    <div class="card">
-      <a class="btn" style="margin:0 0 10px;" href="https://drive.google.com/drive/folders/1gWZ2d-GMRm7BiyMfPkXwq50lIYrFy1hn" target="_blank" rel="noopener">
-        <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-folder"/></svg>
-        פתיחת כספת התכנים
-      </a>
-      <p class="group-title">קיצורי דרך לתיקיות שימושיות</p>
-      <ul class="links">
-        <li><a href="https://drive.google.com/drive/folders/1A2P755ctre6lNRlhnAJIRO4oaiWc-odX" target="_blank" rel="noopener"><span class="fi c1"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-clip"/></svg></span>כלי עזר לתכנון חודשי<svg class="ic chev" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a></li>
-        <li><a href="https://drive.google.com/drive/folders/157sPovLjyp3lP8tnfw--QRPLPLxwPL4r" target="_blank" rel="noopener"><span class="fi c2"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-book"/></svg></span>תוכניות עבודה לפי נושאים<svg class="ic chev" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a></li>
-        <li><a href="https://drive.google.com/drive/folders/1jpD2JZpMqJAZtDXjxz134vEIDzXUdcsZ" target="_blank" rel="noopener"><span class="fi c3"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-star"/></svg></span>חגים<svg class="ic chev" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a></li>
-        <li><a href="https://drive.google.com/drive/folders/1hD9d4mRRV1V_1Q4SUKt-s_FA7AVM1vzU" target="_blank" rel="noopener"><span class="fi c4"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-sun"/></svg></span>עונות השנה<svg class="ic chev" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a></li>
-        <li><a href="https://drive.google.com/drive/folders/1z5XYH4W5f6Wq3LS2Z-NFbfIU_uY-XuRJ" target="_blank" rel="noopener"><span class="fi c5"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-home"/></svg></span>עיצוב סביבת הגן<svg class="ic chev" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a></li>
-        <li><a href="https://drive.google.com/drive/folders/1-9N-3Y8lYRHp9-tjIXg_RxYLHIWdmrWl" target="_blank" rel="noopener"><span class="fi c6"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg></span>רגשי-חברתי<svg class="ic chev" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a></li>
-      </ul>
-      <p class="small" style="margin:10px 0 0;">מחפשת משהו אחר? כתבי אותו בחיפוש למעלה.</p>
     </div>
   </section>
 
