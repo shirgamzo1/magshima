@@ -80,7 +80,8 @@ header .logo { width: 220px; max-width: 64%; height: auto; display: inline-block
   padding: 14px 20px; border-radius: 999px; background: var(--pink); color: var(--white); text-decoration: none;
   font-family: "Rubik", sans-serif; font-weight: 700; font-size: 1.1875rem; box-shadow: 0 6px 18px rgba(236, 71, 166, .3);
 }
-.btn.big { font-size: 1.25rem; min-height: 60px; margin: 16px 0 6px; }
+.btn.big { font-size: 1.25rem; min-height: 60px; margin: 18px 0 6px; }
+.btn.big.vault-btn { margin-bottom: 0; }
 .btn:active { transform: translateY(1px); }
 .btn-line {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 8px 16px;
@@ -92,6 +93,7 @@ header .logo { width: 220px; max-width: 64%; height: auto; display: inline-block
 
 /* כרטיסים */
 section { margin-top: 32px; scroll-margin-top: 12px; }
+#start, #next { margin-top: 18px; }
 section > h2 { margin-bottom: 12px; }
 .card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px 18px; }
 .stack > * + * { margin-top: 12px; }

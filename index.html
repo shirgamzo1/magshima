@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Rubik:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20261018">
+<link rel="stylesheet" href="style.css?v=20261019">
 <script>
   // גודל הטקסט שנבחר בפעם הקודמת, לפני שהדף מצויר (כדי שלא יקפוץ)
   try { var fs = localStorage.getItem('magshima-fs'); if (fs) document.documentElement.setAttribute('data-fs', fs); } catch (e) {}
@@ -62,12 +62,6 @@
     </div>
   </header>
 
-  <a class="btn big" href="https://my.schooler.biz/s/79388/bundles" target="_blank" rel="noopener">
-    <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
-    כניסה לפורטל התוכן
-  </a>
-  <p class="note">לא מצליחה להיכנס לפורטל? <a href="https://docs.google.com/document/d/1D9RWWdTpgFitQ6dRYPF421nI_laHAf1SZE3qS4vfQsI/edit?usp=sharing" target="_blank" rel="noopener">לחצי כאן</a> להסבר</p>
-
   <main id="main" tabindex="-1">
 
   <!-- ===== חיפוש: הרשימה נבנית מהכספת ומהפורטל (data/search.json) ===== -->
@@ -82,6 +76,23 @@
     <ul class="results" id="q-results"></ul>
   </div>
 
+  <!-- ===== התחילי כאן: אפשר להסתיר, הבחירה נשמרת בטלפון ===== -->
+  <section class="card start reveal" id="start" aria-labelledby="start-title">
+    <h2 id="start-title"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-star"/></svg>חדשה במועדון? התחילי כאן</h2>
+    <ol>
+      <li><span>היכנסי לפורטל וצפי בשיעור <a href="https://my.schooler.biz/s/79175/1722423561380/-Ld_5wo?tid=0" target="_blank" rel="noopener">"מכאן את מתחילה"</a>.</span></li>
+      <li><span>פתחי את <a href="https://drive.google.com/drive/folders/1gWZ2d-GMRm7BiyMfPkXwq50lIYrFy1hn" target="_blank" rel="noopener">כספת התכנים</a>. היא נפתחת עם המייל שאיתו קיבלת גישה.</span></li>
+      <li><span>שמרי את הדף הזה בטלפון, ככה הכול תמיד אצלך. <a href="#save-page">איך עושים את זה?</a></span></li>
+    </ol>
+    <button type="button" class="hide" id="start-hide" hidden>כבר עשיתי את זה, אפשר להסתיר</button>
+  </section>
+
+  <a class="btn big" href="https://my.schooler.biz/s/79388/bundles" target="_blank" rel="noopener">
+    <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+    כניסה לפורטל התוכן
+  </a>
+  <p class="note">לא מצליחה להיכנס לפורטל? <a href="https://docs.google.com/document/d/1D9RWWdTpgFitQ6dRYPF421nI_laHAf1SZE3qS4vfQsI/edit?usp=sharing" target="_blank" rel="noopener">לחצי כאן</a> להסבר</p>
+
   <!-- ===== הדבר הבא: מתמלא מהאירועים ב-app.js, ונעלם כשאין אירוע קרוב ===== -->
   <section class="card next reveal" id="next" aria-labelledby="next-title" hidden>
     <span class="label">הדבר הבא במועדון</span>
@@ -94,25 +105,10 @@
     </div>
   </section>
 
-  <!-- ===== התחילי כאן: אפשר להסתיר, הבחירה נשמרת בטלפון ===== -->
-  <section class="card start reveal" id="start" aria-labelledby="start-title">
-    <h2 id="start-title"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-star"/></svg>חדשה במועדון? התחילי כאן</h2>
-    <ol>
-      <li><span>היכנסי לפורטל וצפי בשיעור <a href="https://my.schooler.biz/s/79175/1722423561380/-Ld_5wo?tid=0" target="_blank" rel="noopener">"מכאן את מתחילה"</a>.</span></li>
-      <li><span>פתחי את <a href="https://drive.google.com/drive/folders/1gWZ2d-GMRm7BiyMfPkXwq50lIYrFy1hn" target="_blank" rel="noopener">כספת התכנים</a>. היא נפתחת עם המייל שאיתו קיבלת גישה.</span></li>
-      <li><span>שמרי את הדף הזה בטלפון, ככה הכול תמיד אצלך. <a href="#save-page">איך עושים את זה?</a></span></li>
-    </ol>
-    <button type="button" class="hide" id="start-hide" hidden>כבר עשיתי את זה, אפשר להסתיר</button>
-  </section>
-
-  <nav class="chips" aria-label="ניווט בדף">
-    <a href="#updates">עדכונים</a>
-    <a href="#schedule">תוכנית החודש</a>
-    <a href="#club">מה יש במועדון</a>
-    <a href="#vault">כספת</a>
-    <a href="#kits">ערכות למידה</a>
-    <a href="#help">עזרה</a>
-  </nav>
+  <a class="btn big vault-btn" href="https://drive.google.com/drive/folders/1gWZ2d-GMRm7BiyMfPkXwq50lIYrFy1hn" target="_blank" rel="noopener">
+    <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-folder"/></svg>
+    כניסה לכספת התכנים
+  </a>
 
   <!-- ===== עדכונים חשובים: הכי חדש למעלה. data-date קובע את "חדש" (שבועיים).
        רק 3 גלויים, השאר עוברים לבד ל"עדכונים קודמים". ===== -->
@@ -140,6 +136,15 @@
       <div class="answer stack" id="older-list"></div>
     </details>
   </section>
+
+  <nav class="chips" aria-label="ניווט בדף">
+    <a href="#updates">עדכונים</a>
+    <a href="#schedule">תוכנית החודש</a>
+    <a href="#club">מה יש במועדון</a>
+    <a href="#vault">כספת</a>
+    <a href="#kits">ערכות למידה</a>
+    <a href="#help">עזרה</a>
+  </nav>
 
   <!-- ===== תוכנית החודש: להחליף בתחילת כל חודש (וגם את האירוע ב-app.js) ===== -->
   <section id="schedule" class="reveal" aria-labelledby="schedule-title">
