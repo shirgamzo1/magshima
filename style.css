@@ -150,10 +150,17 @@ nav.chips a {
   padding: 6px 16px; border-radius: 999px; font-size: .9375rem; font-weight: 700; color: var(--brown);
 }
 
-/* עדכונים */
+/* עדכונים: כל עדכון הוא חלון נפתח עם חץ, ו"לחצי לפירוט" קטן ליד הכותרת */
 .update { border-right: 5px solid var(--pink); }
-.update .meta { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
-.update p { margin: 4px 0 0; }
+.update summary::after, .update[open] summary::after { content: none; }
+.update .t { display: block; }
+.update .meta { display: flex; align-items: center; gap: 8px; margin-bottom: 2px; font-weight: 400; }
+.update h3::after {
+  content: "לחצי לפירוט"; display: inline-block; margin-inline-start: 8px;
+  font-family: "Assistant", sans-serif; font-size: .875rem; font-weight: 700; color: var(--pink-ink);
+}
+.update[open] h3::after { content: "לסגירה"; }
+.update .link { margin-top: 0; }
 .older { margin-top: 12px; }
 
 /* חלונות (תוכנית החודש ושאלות נפוצות) */
@@ -177,8 +184,8 @@ details li + li { margin-top: 6px; }
 .plan summary::after, .plan[open] summary::after { content: none; }
 .plan .t { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
 .plan .when { font-family: "Assistant", sans-serif; font-size: .875rem; font-weight: 700; color: var(--pink-ink); background: var(--pink-soft); padding: 1px 10px; border-radius: 999px; }
-.plan .arrow { width: 24px; height: 24px; color: var(--pink-ink); transition: transform .2s; }
-.plan[open] .arrow { transform: rotate(180deg); }
+.plan .arrow, .update .arrow { width: 24px; height: 24px; color: var(--pink-ink); transition: transform .2s; }
+.plan[open] .arrow, .update[open] .arrow { transform: rotate(180deg); }
 .plan .link { margin-top: 0; }
 
 /* מה יש במועדון */

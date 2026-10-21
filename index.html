@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Rubik:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20261019c">
+<link rel="stylesheet" href="style.css?v=20261021">
 <script>
   // גודל הטקסט שנבחר בפעם הקודמת, לפני שהדף מצויר (כדי שלא יקפוץ)
   try { var fs = localStorage.getItem('magshima-fs'); if (fs) document.documentElement.setAttribute('data-fs', fs); } catch (e) {}
@@ -132,39 +132,44 @@
     </div>
   </section>
 
-  <!-- ===== עדכונים חשובים: הכי חדש למעלה. data-date קובע את "חדש" (שבועיים).
-       רק 3 גלויים, השאר עוברים לבד ל"עדכונים קודמים". ===== -->
+  <!-- ===== עדכונים חשובים: הכי חדש למעלה. כל עדכון הוא חלון נפתח עם חץ.
+       בכותרת רואים תאריך וכותרת (ו"לחצי לפירוט" מגיע לבד מהעיצוב), בפנים הפירוט והקישור.
+       data-date קובע את "חדש" (שבועיים). רק 3 גלויים, השאר עוברים לבד ל"עדכונים קודמים". ===== -->
   <section id="updates" class="reveal" aria-labelledby="updates-title">
     <h2 id="updates-title"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-bell"/></svg>עדכונים חשובים</h2>
     <div class="stack" id="updates-list">
 
-      <article class="card update" data-date="2026-10-21">
-        <div class="meta"><span class="small">21.10.2026</span></div>
-        <h3>חדש במועדון: חוברות עבודה</h3>
-        <p>חוברות דפי עבודה לסתיו, לחנוכה ולחורף, מוכנות להדפסה. לכל נושא חוברת לגילאי 3-4 וחוברת לגילאי 5-6, עם ספירה, אותיות, מבוכים, מצאו את ההבדלים ועוד.</p>
-        <a class="link" href="https://drive.google.com/drive/folders/1JMjNCA2H8lsedrcbcNXjNqa0nxBmM5ir" target="_blank" rel="noopener">לחוברות בכספת <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a>
-      </article>
+      <details class="update" data-date="2026-10-21">
+        <summary><span class="t"><span class="meta"><span class="small">21.10.2026</span></span><h3>חדש במועדון: חוברות עבודה</h3></span><svg class="ic arrow" aria-hidden="true" focusable="false"><use href="#i-down"/></svg></summary>
+        <div class="answer">
+          <p>חוברות דפי עבודה לסתיו, לחנוכה ולחורף, מוכנות להדפסה. לכל נושא חוברת לגילאי 3-4 וחוברת לגילאי 5-6, עם ספירה, אותיות, מבוכים, מצאו את ההבדלים ועוד.</p>
+          <a class="link" href="https://drive.google.com/drive/folders/1JMjNCA2H8lsedrcbcNXjNqa0nxBmM5ir" target="_blank" rel="noopener">לחוברות בכספת <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a>
+        </div>
+      </details>
 
-      <article class="card update" data-date="2026-10-19">
-        <div class="meta"><span class="small">19.10.2026</span></div>
-        <h3>ערכה חדשה בכספת: למידה רגשית-חברתית</h3>
-        <p>14 משחקים לגן רב גילאי 3-6, כמו לוח רגשות לבוקר, פינת הרגעה, "מקרב או מרחיק" ומסלול החברים. בכל משחק יש רמה לגילאי 3-4 ורמה לגילאי 5-6.</p>
-        <a class="link" href="https://drive.google.com/drive/folders/1S1dQDqB0JXfobvrW7gW2pJ6Afys6lWe4" target="_blank" rel="noopener">לערכה בכספת <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a>
-      </article>
+      <details class="update" data-date="2026-10-19">
+        <summary><span class="t"><span class="meta"><span class="small">19.10.2026</span></span><h3>ערכה חדשה בכספת: למידה רגשית-חברתית</h3></span><svg class="ic arrow" aria-hidden="true" focusable="false"><use href="#i-down"/></svg></summary>
+        <div class="answer">
+          <p>14 משחקים לגן רב גילאי 3-6, כמו לוח רגשות לבוקר, פינת הרגעה, "מקרב או מרחיק" ומסלול החברים. בכל משחק יש רמה לגילאי 3-4 ורמה לגילאי 5-6.</p>
+          <a class="link" href="https://drive.google.com/drive/folders/1S1dQDqB0JXfobvrW7gW2pJ6Afys6lWe4" target="_blank" rel="noopener">לערכה בכספת <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a>
+        </div>
+      </details>
 
-      <article class="card update" data-date="2026-10-18">
-        <div class="meta"><span class="small">18.10.2026</span></div>
-        <h3>ערכות למידה חדשות מחכות לך בכספת</h3>
-        <p>9 ערכות למידה מוכנות להדפסה: סתיו, חורף, חנוכה, בעלי חיים, צבעים וצורות, שפה ואוריינות וחשבון.</p>
-        <a class="link" href="#kits">לכל הערכות <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a>
-      </article>
+      <details class="update" data-date="2026-10-18">
+        <summary><span class="t"><span class="meta"><span class="small">18.10.2026</span></span><h3>ערכות למידה חדשות מחכות לך בכספת</h3></span><svg class="ic arrow" aria-hidden="true" focusable="false"><use href="#i-down"/></svg></summary>
+        <div class="answer">
+          <p>9 ערכות למידה מוכנות להדפסה: סתיו, חורף, חנוכה, בעלי חיים, צבעים וצורות, שפה ואוריינות וחשבון.</p>
+          <a class="link" href="#kits">לכל הערכות <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a>
+        </div>
+      </details>
 
-      <article class="card update" data-date="2026-10-07">
-        <div class="meta"><span class="small">7.10.2026</span></div>
-        <h3>תכנון נובמבר כבר בפורטל</h3>
-        <p>ההדרכה המוקלטת לתכנון החודש מחכה לך. הקבצים נמצאים מתחת לשיעור, ב"קבצים מצורפים".</p>
-        <a class="link" href="https://my.schooler.biz/s/79790/1723446311993/DIMPiSU?tid=0" target="_blank" rel="noopener">לצפייה בהדרכה <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a>
-      </article>
+      <details class="update" data-date="2026-10-07">
+        <summary><span class="t"><span class="meta"><span class="small">7.10.2026</span></span><h3>תכנון נובמבר כבר בפורטל</h3></span><svg class="ic arrow" aria-hidden="true" focusable="false"><use href="#i-down"/></svg></summary>
+        <div class="answer">
+          <p>ההדרכה המוקלטת לתכנון החודש מחכה לך. הקבצים נמצאים מתחת לשיעור, ב"קבצים מצורפים".</p>
+          <a class="link" href="https://my.schooler.biz/s/79790/1723446311993/DIMPiSU?tid=0" target="_blank" rel="noopener">לצפייה בהדרכה <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></a>
+        </div>
+      </details>
 
     </div>
     <details class="older" id="older" hidden>
@@ -402,6 +407,6 @@
   <a href="#help"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-help"/></svg>עזרה</a>
 </nav>
 
-<script src="app.js?v=20261018"></script>
+<script src="app.js?v=20261021"></script>
 </body>
 </html>

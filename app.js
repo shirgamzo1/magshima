@@ -70,9 +70,9 @@
   var NEW_DAYS = 14, SHOWN = 3;
   var list = $('updates-list');
   if (list) {
-    var arts = Array.prototype.slice.call(list.querySelectorAll('article[data-date]'));
+    var arts = Array.prototype.slice.call(list.querySelectorAll('.update[data-date]'));
     arts.forEach(function (art, i) {
-      var age = (Date.now() - Date.parse(art.getAttribute('data-date') + 'T12:00:00+03:00')) / 864e5;
+      var age = (Date.now() - Date.parse(art.getAttribute('data-date') + 'T00:00:00+03:00')) / 864e5;
       if (age >= 0 && age < NEW_DAYS) {
         var pill = document.createElement('span');
         pill.className = 'pill';
