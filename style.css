@@ -125,6 +125,13 @@ section > h2 { margin-bottom: 12px; }
 .results .type { font-size: .8125rem; font-weight: 700; color: var(--brown); white-space: nowrap; margin-inline-start: auto; }
 .status { margin: 10px 2px 0; font-size: .9375rem; color: var(--muted); }
 
+/* ההמלצה השבועית: בלי מסגרת, רק רקע לבן-ורוד עדין */
+.weekly { background: linear-gradient(160deg, var(--white) 50%, #fdeef6); }
+.weekly .label { display: block; font-size: .875rem; font-weight: 700; color: var(--pink-ink); }
+.weekly h3 { font-size: 1.3125rem; margin: 2px 0 8px; }
+.weekly p { margin: 0 0 8px; }
+.weekly .btn { margin-top: 14px; }
+
 /* הדבר הבא */
 .next { border: 2px solid var(--pink-soft); background: linear-gradient(160deg, var(--white) 50%, #fdeef6); }
 .next .label { font-size: .875rem; font-weight: 700; color: var(--pink-ink); letter-spacing: .02em; }
